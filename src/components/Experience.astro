@@ -13,47 +13,65 @@ const s = P.ui.sections.experience;
 
   <div class="xp-list">
     {
-      P.experience.map((x) => {
+      P.experience.map((x, i) => {
+        const prev = P.experience[i - 1];
+        const isNewGroup = x.group && x.group !== prev?.group;
+        const isSecondary = !!x.group;
         const parts = x.period.split("–").map((s) => s.trim());
         const from = parts[0];
         const to = parts[1];
         return (
-          <div class="xp">
-            <div class="xp-year">
-              <span class="year-from">{from}</span>
-              <span class="year-to">↓ {to}</span>
-              <span class="year-dur">{x.duration}</span>
-              <span class="year-type">{x.type}</span>
-            </div>
-            <div class="xp-main">
-              <h3>{x.role}</h3>
-              <span class="company">
-                {x.company}
-                <span class="city">— {x.location}</span>
-                {x.url && (
-                  <span class="city"> —</span>
-                  <a href={x.url} class="site-link" target="_blank" rel="noopener noreferrer">
-                   ↗ {x.url.replace(/^https?:\/\//, "")}
-                  </a>
-                )}
-              </span>
-              <p class="summary">{x.summary}</p>
-              {x.bullets.length > 0 && (
-                <ul>
-                  {x.bullets.map((b) => (
-                    <li>{b}</li>
-                  ))}
-                </ul>
-              )}
-              {x.tags.length > 0 && (
-                <div class="tags">
-                  {x.tags.map((t) => (
-                    <span class="tag">{t}</span>
-                  ))}
+          <>
+            {isNewGroup && (
+              <div class="group-header">
+                <span class="group-dash">—</span> {x.group}
+              </div>
+            )}
+            {isSecondary ? (
+              <div class={`xp-row${isNewGroup ? " xp-row--first" : ""}`}>
+                <span class="row-period">{x.period}</span>
+                <span class="row-role">{x.role}</span>
+                <span class="row-company">{x.company}</span>
+              </div>
+            ) : (
+              <div class="xp">
+                <div class="xp-year">
+                  <span class="year-from">{from}</span>
+                  <span class="year-to">↓ {to}</span>
+                  <span class="year-dur">{x.duration}</span>
+                  <span class="year-type">{x.type}</span>
                 </div>
-              )}
-            </div>
-          </div>
+                <div class="xp-main">
+                  <h3>{x.role}</h3>
+                  <span class="company">
+                    {x.company}
+                    <span class="city">— {x.location}</span>
+                    {x.url && (
+                      <span class="city"> —</span>
+                      <a href={x.url} class="site-link" target="_blank" rel="noopener noreferrer">
+                       ↗ {x.url.replace(/^https?:\/\//, "")}
+                      </a>
+                    )}
+                  </span>
+                  <p class="summary">{x.summary}</p>
+                  {x.bullets.length > 0 && (
+                    <ul>
+                      {x.bullets.map((b) => (
+                        <li>{b}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {x.tags.length > 0 && (
+                    <div class="tags">
+                      {x.tags.map((t) => (
+                        <span class="tag">{t}</span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </>
         );
       })
     }
@@ -124,6 +142,62 @@ const s = P.ui.sections.experience;
 
   .xp:last-child {
     border-bottom: var(--border-thin);
+  }
+
+  /* Subgroup header */
+  .group-header {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-ink-4);
+    padding: var(--space-7) 0 var(--space-2);
+  }
+
+  .group-dash {
+    color: var(--color-ink-4);
+    margin-right: 6px;
+  }
+
+  /* Secondary compact rows */
+  .xp-row {
+    display: grid;
+    grid-template-columns: 140px 1fr auto;
+    gap: var(--space-4);
+    align-items: baseline;
+    padding: 9px 0;
+    border-top: var(--border-thin);
+  }
+
+  .xp-row--first {
+    border-top: var(--border-dashed);
+  }
+
+  .xp-row:last-child {
+    border-bottom: var(--border-thin);
+  }
+
+  .row-period {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-ink-4);
+    letter-spacing: 0.02em;
+  }
+
+  .row-role {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-ink);
+    letter-spacing: -0.01em;
+  }
+
+  .row-company {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-ink-3);
+    text-align: right;
   }
 
   /* Year column */

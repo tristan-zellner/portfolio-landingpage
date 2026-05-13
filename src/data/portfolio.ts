@@ -75,6 +75,7 @@ export interface Experience {
   summary: string;
   bullets: string[];
   tags: string[];
+  group?: string;
 }
 
 export interface SkillGroup {
@@ -198,7 +199,7 @@ export const PORTFOLIO: Portfolio = {
   experienceSince: "2007",
 
   meta: {
-    title: "Tristan Zellner — Portfolio",
+    title: "Tristan Zellner - Portfolio",
     description:
       "Software Engineer, Gründer und Geschäftsführer aus Münster mit über 10 Jahren Erfahrung in Full-Stack-Entwicklung und technischer Führung.",
   },
@@ -238,7 +239,7 @@ export const PORTFOLIO: Portfolio = {
       title: "Gründung und Entwicklung travelbuddy",
       bullets: [
         "Vollständige Konzeption und Neuentwicklung einer Software zur Verwaltung von Gruppenreisen für KMU",
-        "Erarbeitung von Prozesses und Design",
+        "Erarbeitung von Prozessen und Design",
         "KI-unterstützte Entwicklung mit Claude Code und Cursor",
         "Deployment und Betrieb auf selbst verwalteten Virtual Private Server",
         "Abdeckung des kompletten Software Development Lifecycles",
@@ -326,6 +327,7 @@ export const PORTFOLIO: Portfolio = {
     },
     {
       company: "Fiducia & GAD IT AG",
+      group: "Ausbildung",
       role: "Werkstudent · Java-Entwicklung",
       period: "Feb 2016 – Apr 2018",
       duration: "2 Jahre 3 Monate",
@@ -336,18 +338,8 @@ export const PORTFOLIO: Portfolio = {
       tags: ["Java"],
     },
     {
-      company: "Deutsche Telekom",
-      role: "Auszubildender · IT-Systemkaufmann",
-      period: "Sept 2007 – Feb 2010",
-      duration: "2 Jahre 6 Monate",
-      location: "Münster",
-      type: "Ausbildung",
-      summary: "Ausbildung zum IT-Systemkaufmann.",
-      bullets: [],
-      tags: [],
-    },
-    {
       company: "FH Münster",
+      group: "Ausbildung",
       role: "Bachelor of Science · Informatik",
       period: "2014 – 2018",
       duration: "4 Jahre",
@@ -357,6 +349,19 @@ export const PORTFOLIO: Portfolio = {
       bullets: [],
       tags: [],
     },
+    {
+      company: "Deutsche Telekom",
+      group: "Ausbildung",
+      role: "Auszubildender · IT-Systemkaufmann",
+      period: "Sept 2007 – Feb 2010",
+      duration: "2 Jahre 6 Monate",
+      location: "Münster",
+      type: "Ausbildung",
+      summary: "Ausbildung zum IT-Systemkaufmann.",
+      bullets: [],
+      tags: [],
+    },
+
   ],
 
   education: {
