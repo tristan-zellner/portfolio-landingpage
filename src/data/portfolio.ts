@@ -1,9 +1,6 @@
 export interface UI {
   locale: string;
   masthead: {
-    editionLabel: string;
-    authorPrefix: string;
-    editionPrefix: string;
     countryCode: string;
   };
   nav: {
@@ -137,9 +134,6 @@ export const PORTFOLIO: Portfolio = {
   ui: {
     locale: "de-DE",
     masthead: {
-      editionLabel: "Dossier",
-      authorPrefix: "Von",
-      editionPrefix: "Edition",
       countryCode: "DE",
     },
     nav: {
@@ -206,7 +200,7 @@ export const PORTFOLIO: Portfolio = {
 
   hero: {
     chips: ["Engineering Leadership", "Ruby on Rails"],
-    lead: "Klarheit, Einfachheit und Zielstrebigkeit. Als Software Engineer, CTO und heute als Gründer baue ich Produkte, Teams und Strukturen, die halten.",
+    lead: "Klarheit, Einfachheit und Zielstrebigkeit. Als Software Engineer, CTO und heute als Gründer baue ich Produkte, Teams und Strukturen, die funktionieren.",
     portraitYear: "2025",
   },
 

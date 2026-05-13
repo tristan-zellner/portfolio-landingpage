@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import portraitSrc from "@/assets/portrait.jpg";
 import { PORTFOLIO } from "@/data/portfolio";
 
 const P = PORTFOLIO;
@@ -28,11 +30,7 @@ const leadRest = P.hero.lead.slice(1);
   </div>
 
   <div class="portrait">
-    <div class="portrait-label">
-      <span>Plate 01</span>
-      <span>Porträt</span>
-    </div>
-    <img src="/assets/portrait.jpg" alt={P.name} />
+    <Image src={portraitSrc} alt={P.name} style="width: 100%; height: auto;" />
     <div class="portrait-cap">
       <span><strong>{P.name}</strong></span>
       <span>{P.hero.portraitYear}</span>
@@ -133,18 +131,7 @@ const leadRest = P.hero.lead.slice(1);
     align-self: start;
     position: relative;
   }
-
-  .portrait-label {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--color-ink-3);
-    margin-bottom: var(--space-1);
-    display: flex;
-    justify-content: space-between;
-  }
-
+  
   .portrait img {
     width: 100%;
     aspect-ratio: 4 / 5;
