@@ -1,0 +1,61 @@
+---
+import { PORTFOLIO } from "@/data/portfolio";
+
+const { nav } = PORTFOLIO.ui;
+const sections = [
+  { label: nav.about,      id: "über" },
+  { label: nav.experience, id: "werdegang" },
+  { label: nav.projects,   id: "projekte" },
+  { label: nav.skills,     id: "fähigkeiten" },
+  { label: nav.personal,   id: "persönlich" },
+  { label: nav.contact,    id: "kontakt" },
+];
+---
+
+<nav class="subbar">
+  {
+    sections.map((s, i) => (
+      <a href={`#${s.id}`} class="subbar-item">
+        <span class="num">{String(i + 1).padStart(2, "0")}</span>
+        {s.label}
+      </a>
+    ))
+  }
+</nav>
+
+<style>
+  .subbar {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border-bottom: var(--border-thin);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .subbar-item {
+    padding: 10px var(--space-2);
+    border-right: var(--border-thin);
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.15s ease, background-color 0.15s ease;
+  }
+
+  .subbar-item:last-child {
+    border-right: 0;
+  }
+
+  .subbar-item:hover {
+    color: var(--color-ink);
+    background-color: var(--color-paper-2);
+  }
+
+  .num {
+    color: var(--color-accent);
+    margin-right: var(--space-1);
+  }
+</style>

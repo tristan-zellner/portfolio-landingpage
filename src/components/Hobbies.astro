@@ -1,0 +1,101 @@
+---
+import { PORTFOLIO } from "@/data/portfolio";
+
+const { hobbies } = PORTFOLIO;
+const s = PORTFOLIO.ui.sections.personal;
+---
+
+<section class="section" id="persönlich">
+  <div class="section-head">
+    <h2><span class="num">05</span>{s.title}</h2>
+    <div class="meta">{s.meta}</div>
+  </div>
+  <div class="hobbies">
+    {
+      hobbies.map((h, i) => (
+        <div class="hobby">
+          <div class="hobby-n">0{i + 1}</div>
+          <div class="hobby-title">{h.label}</div>
+          <div class="hobby-desc">{h.note}</div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: var(--space-8) var(--page-padding);
+    position: relative;
+    z-index: 1;
+    border-bottom: var(--border-thin);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-2);
+    border-bottom: var(--border-thick);
+  }
+
+  h2 {
+    font-size: var(--text-6xl);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-accent);
+    vertical-align: top;
+    margin-right: var(--space-2);
+    letter-spacing: 0.1em;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ink-3);
+  }
+
+  .hobbies {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+
+  .hobby {
+    border-top: var(--border-thick);
+    padding-top: 16px;
+  }
+
+  .hobby-n {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  .hobby-title {
+    font-size: var(--text-5xl);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: var(--space-1);
+  }
+
+  .hobby-desc {
+    font-size: 13px;
+    color: var(--color-ink-3);
+    line-height: 1.5;
+  }
+</style>

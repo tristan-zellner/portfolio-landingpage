@@ -1,0 +1,81 @@
+---
+import { PORTFOLIO } from "@/data/portfolio";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = PORTFOLIO.meta.title,
+  description = PORTFOLIO.meta.description,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="portfolio-shell">
+      <slot />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @import "../styles/tokens.css";
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--color-paper);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01";
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .portfolio-shell {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    background: var(--color-paper);
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.06);
+    position: relative;
+  }
+
+  /* Paper texture overlay */
+  .portfolio-shell::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+    background-size: 3px 3px;
+    opacity: 0.7;
+    z-index: 0;
+  }
+</style>

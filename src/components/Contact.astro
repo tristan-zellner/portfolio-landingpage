@@ -1,0 +1,165 @@
+---
+import { PORTFOLIO } from "@/data/portfolio";
+
+const { contact } = PORTFOLIO;
+const s = PORTFOLIO.ui.sections.contact;
+---
+
+<section class="section" id="kontakt">
+  <div class="section-head">
+    <h2><span class="num">06</span>{s.title}</h2>
+    <div class="meta">{s.meta}</div>
+  </div>
+  <div class="contact">
+    <div class="lead">{contact.headline}</div>
+    <div class="rows">
+      <div class="row">
+        <div class="k">{s.fieldLocation}</div>
+        <div class="v">{contact.location}</div>
+        <div class="a">●</div>
+      </div>
+      <div class="row">
+        <div class="k">{s.fieldEmail}</div>
+        <div class="v">
+          <a href={contact.emailUrl} target="_blank" rel="noopener noreferrer">
+            {contact.email}
+          </a>
+        </div>
+        <div class="a">↗</div>
+      </div>
+      <div class="row">
+        <div class="k">{s.fieldLinkedIn}</div>
+        <div class="v">
+          <a href={contact.linkedinUrl} target="_blank" rel="noopener noreferrer">
+            {contact.linkedin}
+          </a>
+        </div>
+        <div class="a">↗</div>
+      </div>
+      <div class="row">
+        <div class="k">{s.fieldGitHub}</div>
+        <div class="v">
+          <a href={contact.githubUrl} target="_blank" rel="noopener noreferrer">
+            {contact.github}
+          </a>
+        </div>
+        <div class="a">↗</div>
+      </div>
+      <div class="row">
+        <div class="k">{s.fieldXing}</div>
+        <div class="v">
+          <a href={contact.xingUrl} target="_blank" rel="noopener noreferrer">
+            {contact.xing}
+          </a>
+        </div>
+        <div class="a">↗</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: var(--space-8) var(--page-padding);
+    position: relative;
+    z-index: 1;
+    border-bottom: var(--border-thin);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-2);
+    border-bottom: var(--border-thick);
+  }
+
+  h2 {
+    font-size: var(--text-6xl);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-accent);
+    vertical-align: top;
+    margin-right: var(--space-2);
+    letter-spacing: 0.1em;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ink-3);
+  }
+
+  .contact {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .lead {
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    max-width: 540px;
+  }
+
+  .lead .accent {
+    color: var(--color-accent);
+    font-style: italic;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: var(--space-3);
+    padding: var(--space-2) 0;
+    border-bottom: var(--border-thin);
+    align-items: baseline;
+  }
+
+  .row:first-child {
+    border-top: var(--border-thick);
+    padding-top: var(--space-2);
+  }
+
+  .k {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .v {
+    font-size: var(--text-md);
+    color: var(--color-ink);
+  }
+
+  .v a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .v a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .a {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-accent);
+  }
+</style>

@@ -1,0 +1,117 @@
+---
+import { PORTFOLIO } from "@/data/portfolio";
+
+const { skills } = PORTFOLIO;
+const s = PORTFOLIO.ui.sections.skills;
+---
+
+<section class="section" id="fähigkeiten">
+  <div class="section-head">
+    <h2><span class="num">04</span>{s.title}</h2>
+    <div class="meta">{s.meta}</div>
+  </div>
+  <div class="skills">
+    {
+      skills.map((s, i) => (
+        <div class="skill">
+          <div class="skill-header">
+            <span class="skill-n">{String(i + 1).padStart(2, "0")}</span>
+            <span class="skill-title">{s.group}</span>
+          </div>
+          <div class="skill-items">
+            {s.items.map((item) => (
+              <span>{item}</span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: var(--space-8) var(--page-padding);
+    position: relative;
+    z-index: 1;
+    border-bottom: var(--border-thin);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-2);
+    border-bottom: var(--border-thick);
+  }
+
+  h2 {
+    font-size: var(--text-6xl);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-accent);
+    vertical-align: top;
+    margin-right: var(--space-2);
+    letter-spacing: 0.1em;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ink-3);
+  }
+
+  .skills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px var(--space-8);
+  }
+
+  .skill {
+    border-top: var(--border-thin);
+    padding: var(--space-3) 0 4px;
+  }
+
+  .skill-header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    margin-bottom: 12px;
+  }
+
+  .skill-n {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-accent);
+    letter-spacing: 0.1em;
+  }
+
+  .skill-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+
+  .skill-items {
+    font-size: var(--text-md);
+    line-height: 1.7;
+    color: var(--color-ink-2);
+  }
+
+  .skill-items span:not(:last-child)::after {
+    content: " · ";
+    color: var(--color-ink-4);
+    margin: 0 4px;
+  }
+</style>

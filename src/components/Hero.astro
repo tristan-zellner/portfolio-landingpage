@@ -1,0 +1,173 @@
+---
+import { PORTFOLIO } from "@/data/portfolio";
+
+const P = PORTFOLIO;
+const [firstName, ...rest] = P.name.split(" ");
+const lastName = rest.join(" ");
+const dropLetter = P.hero.lead[0];
+const leadRest = P.hero.lead.slice(1);
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="kicker">
+      <span class="bar"></span>{P.roles.join(" · ")}
+    </div>
+    <h1>
+      {firstName}<br />
+      <span class="ital">{lastName}</span><span class="accent">.</span>
+    </h1>
+    <div class="roles">
+      <span>{P.yearsExperience} Jahre</span>
+      {P.hero.chips.map((chip) => <span>{chip}</span>)}
+      <span>{P.location.split(",")[0]}</span>
+    </div>
+    <p class="lead">
+      <span class="drop">{dropLetter}</span>{leadRest}
+    </p>
+  </div>
+
+  <div class="portrait">
+    <div class="portrait-label">
+      <span>Plate 01</span>
+      <span>Porträt</span>
+    </div>
+    <img src="/assets/portrait.jpg" alt={P.name} />
+    <div class="portrait-cap">
+      <span><strong>{P.name}</strong></span>
+      <span>{P.hero.portraitYear}</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: var(--space-7);
+    padding: var(--space-8) var(--page-padding) var(--space-7);
+    position: relative;
+    z-index: 1;
+    border-bottom: var(--border-thin);
+  }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .bar {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--color-accent);
+    vertical-align: 4px;
+    margin-right: 10px;
+  }
+
+  h1 {
+    font-size: var(--text-hero);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: var(--color-ink);
+  }
+
+  h1 .ital {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-ink-2);
+  }
+
+  h1 .accent {
+    color: var(--color-accent);
+  }
+
+  .roles {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-ink-3);
+    margin-top: 28px;
+    margin-bottom: var(--space-5);
+    border-top: var(--border-thin);
+    padding-top: 16px;
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .roles span {
+    color: var(--color-ink);
+  }
+
+  .roles span::before {
+    content: "// ";
+    color: var(--color-ink-4);
+  }
+
+  .lead {
+    font-size: var(--text-2xl);
+    line-height: 1.4;
+    color: var(--color-ink-2);
+    max-width: 580px;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+
+  .drop {
+    float: left;
+    font-size: 60px;
+    line-height: 0.85;
+    padding-right: 10px;
+    padding-top: 4px;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  /* Portrait */
+  .portrait {
+    align-self: start;
+    position: relative;
+  }
+
+  .portrait-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ink-3);
+    margin-bottom: var(--space-1);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .portrait img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+    filter: grayscale(0.6) contrast(1.05) brightness(0.98);
+    border-radius: 1px;
+  }
+
+  .portrait-cap {
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-ink-3);
+    display: flex;
+    justify-content: space-between;
+    border-top: var(--border-thin);
+    padding-top: var(--space-1);
+  }
+
+  .portrait-cap strong {
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+</style>

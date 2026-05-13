@@ -1,0 +1,234 @@
+---
+import { PORTFOLIO } from "@/data/portfolio";
+
+const P = PORTFOLIO;
+const s = P.ui.sections.experience;
+---
+
+<section class="section" id="werdegang">
+  <div class="section-head">
+    <h2><span class="num">02</span>{s.title}</h2>
+    <div class="meta">{P.experience.length} {s.stationsUnit} · {s.sinceLabel} {P.experienceSince}</div>
+  </div>
+
+  <div class="xp-list">
+    {
+      P.experience.map((x) => {
+        const parts = x.period.split("–").map((s) => s.trim());
+        const from = parts[0];
+        const to = parts[1];
+        return (
+          <div class="xp">
+            <div class="xp-year">
+              <span class="year-from">{from}</span>
+              <span class="year-to">↓ {to}</span>
+              <span class="year-dur">{x.duration}</span>
+              <span class="year-type">{x.type}</span>
+            </div>
+            <div class="xp-main">
+              <h3>{x.role}</h3>
+              <span class="company">
+                {x.company} <span class="city">— {x.location}</span>
+              </span>
+              <p class="summary">{x.summary}</p>
+              {x.bullets.length > 0 && (
+                <ul>
+                  {x.bullets.map((b) => (
+                    <li>{b}</li>
+                  ))}
+                </ul>
+              )}
+              {x.tags.length > 0 && (
+                <div class="tags">
+                  {x.tags.map((t) => (
+                    <span class="tag">{t}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: var(--space-8) var(--page-padding);
+    position: relative;
+    z-index: 1;
+    border-bottom: var(--border-thin);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-2);
+    border-bottom: var(--border-thick);
+  }
+
+  h2 {
+    font-size: var(--text-6xl);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-accent);
+    vertical-align: top;
+    margin-right: var(--space-2);
+    letter-spacing: 0.1em;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ink-3);
+  }
+
+  /* Experience list */
+  .xp-list {
+    display: grid;
+    gap: 0;
+  }
+
+  .xp {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: var(--space-6);
+    padding: 36px 0;
+    border-top: var(--border-thin);
+  }
+
+  .xp:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .xp:last-child {
+    border-bottom: var(--border-thin);
+  }
+
+  /* Year column */
+  .xp-year {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-ink);
+    padding-top: 6px;
+  }
+
+  .year-from {
+    font-size: var(--text-3xl);
+    display: block;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .year-to {
+    display: block;
+    color: var(--color-ink-3);
+    font-size: 13px;
+    margin-top: 6px;
+  }
+
+  .year-dur {
+    color: var(--color-ink-4);
+    font-size: var(--text-xs);
+    margin-top: 10px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding-top: 10px;
+    border-top: var(--border-dashed);
+  }
+
+  .year-type {
+    color: var(--color-ink-3);
+    font-size: var(--text-sm);
+    margin-top: 6px;
+    display: block;
+  }
+
+  /* Main content column */
+  h3 {
+    font-size: var(--text-4xl);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+
+  .company {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-3);
+    display: block;
+  }
+
+  .city {
+    color: var(--color-ink-3);
+  }
+
+  .summary {
+    font-size: 16.5px;
+    line-height: 1.55;
+    color: var(--color-ink-2);
+    margin: 0 0 var(--space-3);
+    max-width: 760px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-3);
+    display: grid;
+    gap: var(--space-1);
+    max-width: 820px;
+  }
+
+  li {
+    font-size: var(--text-base);
+    color: var(--color-ink-2);
+    line-height: 1.55;
+    display: grid;
+    grid-template-columns: 22px 1fr;
+  }
+
+  li::before {
+    content: "—";
+    color: var(--color-ink-4);
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 4px;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    color: var(--color-ink-2);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border: var(--border-thin);
+    padding: 5px 9px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+</style>

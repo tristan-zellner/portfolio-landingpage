@@ -1,0 +1,73 @@
+---
+import { PORTFOLIO } from "@/data/portfolio";
+
+const P = PORTFOLIO;
+const { masthead } = P.ui;
+const year = new Date().getFullYear();
+const month = new Date().toLocaleDateString(P.ui.locale, { month: "long" });
+const city = P.location.split(",")[0];
+const authorUpper = P.name.toUpperCase();
+---
+
+<header class="masthead">
+  <div class="l">
+    N° 01 · <span class="accent">{masthead.editionLabel}</span>
+  </div>
+  <div class="b">
+    PORTFOLIO
+    <span class="small">{masthead.authorPrefix.toUpperCase()} {authorUpper} · {masthead.editionPrefix.toUpperCase()} {year}</span>
+  </div>
+  <div class="r">{city}, {masthead.countryCode} · {month} {year}</div>
+</header>
+
+<style>
+  .masthead {
+    border-bottom: var(--border-thick);
+    padding: 18px var(--page-padding) 14px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: end;
+    gap: var(--space-4);
+    position: relative;
+    z-index: 1;
+  }
+
+  .l {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ink-3);
+  }
+
+  .l .accent {
+    color: var(--color-accent);
+  }
+
+  .b {
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-align: center;
+    line-height: 1;
+  }
+
+  .b .small {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    display: block;
+    color: var(--color-ink-3);
+    letter-spacing: 0.18em;
+    margin-top: 6px;
+    font-weight: 400;
+  }
+
+  .r {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ink-3);
+    text-align: right;
+  }
+</style>

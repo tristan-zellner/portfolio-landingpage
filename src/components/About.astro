@@ -1,0 +1,113 @@
+---
+import { PORTFOLIO } from "@/data/portfolio";
+
+const P = PORTFOLIO;
+const s = P.ui.sections.about;
+---
+
+<section class="section" id="über">
+  <div class="section-head">
+    <h2><span class="num">01</span>{s.title}</h2>
+    <div class="meta">{s.metaLabel} · {String(P.about.principles.length).padStart(2, "0")} {s.metaUnit}</div>
+  </div>
+  <p class="section-intro">{P.about.paragraph}</p>
+  <div class="principles">
+    {
+      P.about.principles.map((p, i) => (
+        <div class="principle">
+          <div class="p-num">0{i + 1}</div>
+          <div>
+            <div class="p-title">{p.label}</div>
+            <div class="p-desc">{p.text}</div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: var(--space-8) var(--page-padding);
+    position: relative;
+    z-index: 1;
+    border-bottom: var(--border-thin);
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-2);
+    border-bottom: var(--border-thick);
+  }
+
+  h2 {
+    font-size: var(--text-6xl);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .num {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-accent);
+    vertical-align: top;
+    margin-right: var(--space-2);
+    letter-spacing: 0.1em;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-ink-3);
+  }
+
+  .section-intro {
+    font-size: var(--text-lg);
+    line-height: 1.55;
+    color: var(--color-ink-2);
+    max-width: 640px;
+    margin: 0 0 var(--space-5);
+  }
+
+  .principles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5) var(--space-7);
+  }
+
+  .principle {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: var(--space-3);
+    align-items: baseline;
+  }
+
+  .p-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-4xl);
+    color: var(--color-accent);
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  .p-title {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-1);
+  }
+
+  .p-desc {
+    font-size: var(--text-base);
+    line-height: 1.55;
+    color: var(--color-ink-3);
+  }
+</style>
