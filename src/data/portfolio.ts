@@ -33,6 +33,7 @@ export interface UI {
     personal: {
       title: string;
       meta: string;
+      intro: string;
     };
     contact: {
       title: string;
@@ -166,6 +167,8 @@ export const PORTFOLIO: Portfolio = {
       personal: {
         title: "Persönlich",
         meta: "Außerhalb der Arbeit",
+        intro:
+          "Ich bin ein bodenständiger, aktiver Münsteraner, der seit Kindheitstagen Fußball spielt. Teamwork und der Leistungsgedanke gehen bei mir daher Hand in Hand. Im Sommer geht es lieber mit dem Dachzelt in die Natur, als mit dem Flieger ins Hotel ;)",
       },
       contact: {
         title: "Kontakt",
@@ -404,8 +407,8 @@ export const PORTFOLIO: Portfolio = {
 
   hobbies: [
     { label: "Sport", note: "Ausgleich, Disziplin, Routine" },
-    { label: "Fußball", note: "Mannschaftssport, Strategie, Spaß" },
-    { label: "Familie", note: "Wurzel und Ankerpunkt" },
+    { label: "Fußball", note: "Mannschaftssport, Kreativität, Spaß" },
+    { label: "Camping", note: "Natur statt Bettenburg" },
   ],
 
   contact: {

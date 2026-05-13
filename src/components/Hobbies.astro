@@ -10,6 +10,8 @@ const s = PORTFOLIO.ui.sections.personal;
     <h2><span class="num">05</span>{s.title}</h2>
     <div class="meta">{s.meta}</div>
   </div>
+  <p class="intro">{s.intro}</p>
+
   <div class="hobbies">
     {
       hobbies.map((h, i) => (
@@ -64,6 +66,15 @@ const s = PORTFOLIO.ui.sections.personal;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--color-ink-3);
+  }
+
+  .intro {
+    font-size: var(--text-xl);
+    line-height: 1.5;
+    color: var(--color-ink-2);
+    max-width: 640px;
+    margin: 0 0 var(--space-7);
+    letter-spacing: -0.005em;
   }
 
   .hobbies {
