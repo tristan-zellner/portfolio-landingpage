@@ -75,6 +75,22 @@ Editing that file is the only thing needed to update any text on the page.
 | Borders | `--border-thin`, `--border-thick`, `--border-dashed` |
 | Layout | `--page-padding`, `--max-width` |
 
+## Deployment
+
+The site is deployed as a static site via **IONOS Deploy Now**.
+
+Deploy Now connects to the GitHub repository and builds + publishes the site automatically on every push to the main branch.
+
+Build configuration:
+
+| Setting | Value |
+|---|---|
+| Build command | `npm run build` |
+| Publish directory | `dist/` |
+| Node version | 20 |
+
+No server-side runtime is required — Astro outputs plain HTML/CSS/JS files that are served directly from IONOS's CDN.
+
 ## Notes
 
 - The `portfolio-website/` folder contains the original design handoff and is excluded from Vite's file watcher to avoid hitting the OS inotify limit (`EMFILE`).

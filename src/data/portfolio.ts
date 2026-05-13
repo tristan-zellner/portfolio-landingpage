@@ -229,7 +229,7 @@ export const PORTFOLIO: Portfolio = {
       },
     ],
     paragraph:
-      "Klarheit, Einfachheit und zielstrebiges Arbeiten sind für mich grundlegende Prinzipien. Dabei ist mir ein freundliches Miteinander wichtig – auch in schwierigen Projektsituationen, ohne dabei das klare, offene und manchmal auch kritische Wort zu verlieren, wenn notwendig.",
+      "Klarheit, Einfachheit und zielstrebiges Arbeiten sind für mich grundlegende Prinzipien. Dabei ist mir ein freundliches Miteinander wichtig – auch in schwierigen Projektsituationen, ohne dabei das klare, offene und manchmal auch kritische Wort scheuen.",
   },
 
   projects: [
