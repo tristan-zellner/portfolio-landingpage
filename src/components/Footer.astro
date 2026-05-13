@@ -36,4 +36,16 @@ const shortName = `${firstName[0]}. ${rest.join(" ")}`;
   .r {
     text-align: right;
   }
+
+  @media (max-width: 640px) {
+    .footer {
+      grid-template-columns: 1fr;
+      gap: var(--space-2);
+    }
+
+    .c,
+    .r {
+      text-align: left;
+    }
+  }
 </style>

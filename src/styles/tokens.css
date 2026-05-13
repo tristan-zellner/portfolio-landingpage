@@ -20,12 +20,12 @@
   --text-md:      16px;  /* body, contact values */
   --text-lg:      17px;  /* section intros */
   --text-xl:      20px;  /* skill group headings */
-  --text-2xl:     22px;  /* lead paragraph */
-  --text-3xl:     28px;  /* year display, masthead */
-  --text-4xl:     32px;  /* role titles, xp h3 */
-  --text-5xl:     44px;  /* hobby titles */
-  --text-6xl:     52px;  /* section headings h2 */
-  --text-hero:   132px;  /* hero h1 */
+  --text-2xl:     clamp(16px, 2.5vw, 22px);   /* lead paragraph */
+  --text-3xl:     clamp(20px, 3vw,   28px);   /* year display, masthead */
+  --text-4xl:     clamp(20px, 3.5vw, 32px);   /* role titles, xp h3 */
+  --text-5xl:     clamp(24px, 4.5vw, 44px);   /* hobby titles */
+  --text-6xl:     clamp(28px, 5.5vw, 52px);   /* section headings h2 */
+  --text-hero:    clamp(52px, 13vw,  132px);  /* hero h1 */
 
   /* ── Spacing ─────────────────────────────────────────── */
   --space-1:  8px;
@@ -43,6 +43,6 @@
   --border-dashed: 1px dashed var(--color-rule);
 
   /* ── Layout ──────────────────────────────────────────── */
-  --page-padding: var(--space-7);
+  --page-padding: clamp(16px, 5vw, 56px);
   --max-width:    1400px;
 }

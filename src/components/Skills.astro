@@ -114,4 +114,23 @@ const s = PORTFOLIO.ui.sections.skills;
     color: var(--color-ink-4);
     margin: 0 4px;
   }
+
+  @media (max-width: 900px) {
+    .section-head {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .section {
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
+    }
+
+    .skills {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+  }
 </style>
