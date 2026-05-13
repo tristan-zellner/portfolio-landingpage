@@ -1,3 +1,2 @@
 /dist/
-node_modules/.astro/
-node_modules/.vite/
+node_modules/
