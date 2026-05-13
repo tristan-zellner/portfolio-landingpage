@@ -58,4 +58,49 @@ const sections = [
     color: var(--color-accent);
     margin-right: var(--space-1);
   }
+
+  @media (max-width: 900px) {
+    .subbar {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .subbar-item:nth-child(3) {
+      border-right: 0;
+    }
+
+    .subbar-item:nth-child(4),
+    .subbar-item:nth-child(5),
+    .subbar-item:nth-child(6) {
+      border-top: var(--border-thin);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .subbar {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .subbar-item:nth-child(3) {
+      border-right: var(--border-thin);
+    }
+
+    .subbar-item:nth-child(odd) {
+      border-right: var(--border-thin);
+    }
+
+    .subbar-item:nth-child(even) {
+      border-right: 0;
+    }
+
+    .subbar-item:nth-child(3),
+    .subbar-item:nth-child(4),
+    .subbar-item:nth-child(5),
+    .subbar-item:nth-child(6) {
+      border-top: var(--border-thin);
+    }
+
+    .num {
+      display: none;
+    }
+  }
 </style>

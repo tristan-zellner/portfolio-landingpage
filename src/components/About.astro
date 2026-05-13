@@ -90,6 +90,25 @@ const s = P.ui.sections.about;
     align-items: baseline;
   }
 
+  @media (max-width: 900px) {
+    .section-head {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .section {
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
+    }
+
+    .principles {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+  }
+
   .p-num {
     font-family: var(--font-mono);
     font-size: var(--text-4xl);

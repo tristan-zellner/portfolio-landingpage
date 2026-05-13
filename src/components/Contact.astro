@@ -162,4 +162,35 @@ const s = PORTFOLIO.ui.sections.contact;
     font-size: var(--text-sm);
     color: var(--color-accent);
   }
+
+  @media (max-width: 900px) {
+    .section-head {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+    }
+
+    .contact {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+
+    .lead {
+      font-size: 28px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .section {
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
+    }
+
+    .lead {
+      font-size: 24px;
+    }
+
+    .row {
+      grid-template-columns: 80px 1fr auto;
+    }
+  }
 </style>

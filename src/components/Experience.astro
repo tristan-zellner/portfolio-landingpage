@@ -324,4 +324,71 @@ const s = P.ui.sections.experience;
     border-radius: 2px;
     background: rgba(255, 255, 255, 0.4);
   }
+
+  @media (max-width: 900px) {
+    .section-head {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+    }
+
+    .xp-row {
+      grid-template-columns: 120px 1fr;
+    }
+
+    .row-company {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .section {
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
+    }
+
+    .xp {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+      padding: var(--space-5) 0;
+    }
+
+    .xp-year {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      padding-top: 0;
+      border-bottom: var(--border-dashed);
+      padding-bottom: var(--space-2);
+    }
+
+    .year-from {
+      font-size: var(--text-xl);
+    }
+
+    .year-to {
+      margin-top: 0;
+    }
+
+    .year-dur {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .year-type {
+      margin-top: 0;
+    }
+
+    .xp-row {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+      padding: var(--space-2) 0;
+    }
+
+    .row-company {
+      display: block;
+      text-align: left;
+    }
+  }
 </style>

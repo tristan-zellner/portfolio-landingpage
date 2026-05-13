@@ -109,4 +109,27 @@ const s = PORTFOLIO.ui.sections.personal;
     color: var(--color-ink-3);
     line-height: 1.5;
   }
+
+  @media (max-width: 900px) {
+    .section-head {
+      grid-template-columns: 1fr;
+      gap: var(--space-1);
+    }
+
+    .hobbies {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .section {
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
+    }
+
+    .hobbies {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+  }
 </style>
