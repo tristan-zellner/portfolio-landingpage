@@ -66,6 +66,7 @@ export interface Principle {
 
 export interface Experience {
   company: string;
+  url?: string;
   role: string;
   period: string;
   duration: string;
@@ -267,10 +268,11 @@ export const PORTFOLIO: Portfolio = {
   experience: [
     {
       company: "travelbuddy",
+      url: "https://travelbuddy.tech",
       role: "Gründer & Geschäftsführer",
       period: "Nov 2024 – heute",
       duration: "1 Jahr 7 Monate",
-      location: "Münster · Hybrid",
+      location: "Münster",
       type: "Vollzeit",
       summary:
         "All-in-One-Plattform für professionelle Gruppenreisenanbieter – Unterkünfte, Buchungen, Teilnehmer und Rechnungen an einem Ort.",
@@ -285,13 +287,14 @@ export const PORTFOLIO: Portfolio = {
     },
     {
       company: "finstreet",
+      url: "https://finstreet.de",
       role: "CTO / Head of Software Development",
       period: "Juli 2022 – Aug 2024",
       duration: "2 Jahre 2 Monate",
       location: "Münster",
       type: "Vollzeit",
       summary:
-        "Leitung der gesamten Softwareentwicklung als technischer und strategischer Sparringspartner der Geschäftsführung.",
+        "Leitung der Softwareentwicklung als technischer und strategischer Sparringspartner der Geschäftsführung.",
       bullets: [
         "Strategische Ausrichtung von Technologien, Personal und Prozessen",
         "Aufbau eines internen Entwicklungsteams – Hiring, Onboarding, interne Strukturen",
@@ -303,6 +306,7 @@ export const PORTFOLIO: Portfolio = {
     },
     {
       company: "finstreet",
+      url: "https://finstreet.de",
       role: "Software Engineer",
       period: "Juni 2018 – Juli 2022",
       duration: "4 Jahre 2 Monate",

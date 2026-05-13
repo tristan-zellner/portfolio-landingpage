@@ -28,7 +28,14 @@ const s = P.ui.sections.experience;
             <div class="xp-main">
               <h3>{x.role}</h3>
               <span class="company">
-                {x.company} <span class="city">— {x.location}</span>
+                {x.company}
+                <span class="city">— {x.location}</span>
+                {x.url && (
+                  <span class="city"> —</span>
+                  <a href={x.url} class="site-link" target="_blank" rel="noopener noreferrer">
+                   ↗ {x.url.replace(/^https?:\/\//, "")}
+                  </a>
+                )}
               </span>
               <p class="summary">{x.summary}</p>
               {x.bullets.length > 0 && (
@@ -177,6 +184,18 @@ const s = P.ui.sections.experience;
     letter-spacing: 0.1em;
     margin-bottom: var(--space-3);
     display: block;
+  }
+
+  .site-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    text-transform: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+  }
+
+  .site-link:hover {
+    border-bottom-color: var(--color-accent);
   }
 
   .city {
