@@ -11,8 +11,8 @@
   --color-accent:  #9c2ab5;
 
   /* ── Typography ─────────────────────────────────────── */
-  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "IBM Plex Mono", ui-monospace, Menlo, monospace;
 
   --text-xs:      10px;  /* labels, meta, tags, subbar */
   --text-sm:      11px;  /* mono accents, section meta */
