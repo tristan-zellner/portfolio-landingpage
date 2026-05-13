@@ -196,7 +196,7 @@ export const PORTFOLIO: Portfolio = {
   experienceSince: "2007",
 
   meta: {
-    title: "Tristan Zellner - Portfolio",
+    title: "Tristan Zellner",
     description:
       "Software Engineer, Gründer und Geschäftsführer aus Münster mit über 10 Jahren Erfahrung in Full-Stack-Entwicklung und technischer Führung.",
   },

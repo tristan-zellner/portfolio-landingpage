@@ -1,5 +1,6 @@
 ---
 import { Font } from "astro:assets";
+import faviconSrc from "@/assets/favicon.svg";
 import { PORTFOLIO } from "@/data/portfolio";
 
 interface Props {
@@ -20,6 +21,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={faviconSrc.src} />
 
     <Font cssVariable="--font-inter" preload />
     <Font cssVariable="--font-jetbrains-mono" preload />
