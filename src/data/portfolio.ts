@@ -253,6 +253,17 @@ export const PORTFOLIO: Portfolio = {
         "Komplette Planung und Steuerung des Refactoring-Projekts inklusive aktiver Backend-Entwicklung",
       ],
     },
+    {
+      period: "seit 2018",
+      title: "Diverse Ruby on Rails Projekte",
+      bullets: [
+        "Backend- und Fullstack-Entwicklung für verschiedene Kunden und Produkte",
+        "Entwicklung und Pflege von REST APIs",
+        "Integration diverser externer APIs und Drittanbieter-Dienste",
+        "Test Driven Development (TDD)",
+        "CI/CD-Pipelines und eigenverantwortlicher Betrieb",
+      ],
+    },
   ],
 
   experience: [
