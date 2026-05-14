@@ -2,7 +2,6 @@
 import { PORTFOLIO } from "@/data/portfolio";
 
 const P = PORTFOLIO;
-const { footer } = P.ui;
 const year = new Date().getFullYear();
 const [firstName, ...rest] = P.name.split(" ");
 const shortName = `${firstName[0]}. ${rest.join(" ")}`;
@@ -10,8 +9,6 @@ const shortName = `${firstName[0]}. ${rest.join(" ")}`;
 
 <footer class="footer">
   <span>© {year} {shortName}</span>
-  <span class="c">{P.name} · {footer.label}</span>
-  <span class="r">{footer.sign}</span>
 </footer>
 
 <style>

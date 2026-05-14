@@ -45,10 +45,6 @@ export interface UI {
       fieldXing: string;
     };
   };
-  footer: {
-    label: string;
-    sign: string;
-  };
 }
 
 export interface Project {
@@ -179,10 +175,6 @@ export const PORTFOLIO: Portfolio = {
         fieldGitHub: "GitHub",
         fieldXing: "Xing",
       },
-    },
-    footer: {
-      label: "Portfolio",
-      sign: "Fin.",
     },
   },
 
