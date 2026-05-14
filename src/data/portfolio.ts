@@ -280,9 +280,9 @@ export const PORTFOLIO: Portfolio = {
       bullets: [
         "Fullstack Ruby on Rails Anwendung zur Verwaltung von Gruppenreisen",
         "Selbstständige Durchführung von Konzeption, Design, Prozessen und Umsetzung",
+        "Kundenworkshops und Anforderungsanalysen zur Individualisierung und Weiterentwicklung",
         "KI-gestützte Entwicklung mit Claude Code und Cursor",
-        "Deployment mit Kamal auf eigenen Hetzner VPS",
-        "Backup-Strategie mit restic",
+        "CI/CD, Betrieb, Backup und Wartung",
       ],
       tags: ["Ruby on Rails", "Kamal", "Hetzner", "Claude Code", "Cursor"],
     },
