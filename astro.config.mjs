@@ -1,7 +1,10 @@
 import { defineConfig, fontProviders } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
+  site: "https://tristanzellner.de",
   output: "static",
+  integrations: [sitemap()],
   fonts: [
     {
       provider: fontProviders.google(),

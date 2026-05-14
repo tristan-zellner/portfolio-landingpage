@@ -12,6 +12,48 @@ const {
   title = PORTFOLIO.meta.title,
   description = PORTFOLIO.meta.description,
 } = Astro.props;
+
+const siteUrl = "https://tristanzellner.de";
+const ogImage = `${siteUrl}/portrait.jpg`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Tristan Zellner",
+  url: siteUrl,
+  image: ogImage,
+  jobTitle: [
+    "CTO",
+    "Chief Technology Officer",
+    "Head of Software Development",
+    "Leitung Softwareentwicklung",
+  ],
+  description:
+    "CTO, Chief Technology Officer und Head of Software Development (Leitung Softwareentwicklung) aus Münster mit über 10 Jahren Erfahrung in technischer Führung und Full-Stack-Entwicklung.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Münster",
+    addressRegion: "Nordrhein-Westfalen",
+    addressCountry: "DE",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "FH Münster",
+  },
+  sameAs: [
+    PORTFOLIO.contact.linkedinUrl,
+    PORTFOLIO.contact.githubUrl,
+    PORTFOLIO.contact.xingUrl,
+  ],
+  knowsAbout: [
+    "Software Engineering",
+    "Technical Leadership",
+    "Engineering Management",
+    "Ruby on Rails",
+    "Full-Stack Development",
+    "SaaS",
+  ],
+};
 ---
 
 <!doctype html>
@@ -21,7 +63,28 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={siteUrl} />
     <link rel="icon" type="image/svg+xml" href={faviconSrc.src} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="profile:first_name" content="Tristan" />
+    <meta property="profile:last_name" content="Zellner" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <Font cssVariable="--font-inter" preload />
     <Font cssVariable="--font-jetbrains-mono" preload />

@@ -1,0 +1,44 @@
+# Tristan Zellner
+
+> CTO, Chief Technology Officer und Head of Software Development (Leitung Softwareentwicklung) aus Münster, Deutschland.
+
+Tristan Zellner ist Software Engineer, CTO und Gründer mit Sitz in Münster (Nordrhein-Westfalen). Er verfügt über mehr als 10 Jahre Erfahrung in Full-Stack-Entwicklung, technischer Führung und dem Aufbau von Produktteams.
+
+## Identität & Rollen
+
+- **Name:** Tristan Zellner
+- **Standort:** Münster, Nordrhein-Westfalen, Deutschland
+- **Positionen:** CTO / Chief Technology Officer · Head of Software Development · Leitung Softwareentwicklung · Software Engineer · Gründer & Geschäftsführer
+
+## Kontakt
+
+- **Website:** https://tristanzellner.de
+- **E-Mail:** tristan.zellner@posteo.de
+- **LinkedIn:** https://www.linkedin.com/in/tristan-zellner-378469187/
+- **GitHub:** https://github.com/tristan-zellner
+- **Xing:** https://www.xing.com/profile/Tristan_Zellner/
+
+## Fachgebiete
+
+- Engineering Leadership & Teamaufbau
+- Full-Stack-Entwicklung (Ruby on Rails, PostgreSQL, JavaScript, Hotwire)
+- Technischer Product Owner & Roadmap-Planung
+- Multi-Tenant SaaS-Architektur
+- DevOps (Docker, Kamal, CI/CD, Linux)
+- KI-gestützte Softwareentwicklung (Claude Code, Cursor)
+
+## Werdegang (Zusammenfassung)
+
+Tristan Zellner ist Gründer von **travelbuddy** (Münster), wo er als Geschäftsführer für Produktentwicklung und technische Führung verantwortlich ist. Zuvor leitete er als Head of Engineering und CTO bei **finstreet** (Frankfurt/Münster) die Entwicklung einer Banking-SaaS-Plattform und führte ein Team von bis zu 15 Personen.
+
+## Ausbildung
+
+- **Bachelor of Science Informatik** – FH Münster (2014–2018)
+
+## Technologien & Tools
+
+Ruby on Rails · PostgreSQL · REST APIs · HTML/CSS · JavaScript · Hotwire (Turbo/Stimulus) · Docker · Kamal · restic · CI/CD · Linux · Claude Code · Cursor
+
+## Suchanfragen (Search Queries)
+
+Tristan Zellner, CTO Münster, Chief Technology Officer Münster, Head of Software Development Münster, Leitung Softwareentwicklung Münster, Software Engineer Münster, Engineering Lead Münster, Gründer Münster

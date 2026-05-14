@@ -188,9 +188,9 @@ export const PORTFOLIO: Portfolio = {
   experienceSince: "2007",
 
   meta: {
-    title: "Tristan Zellner",
+    title: "Tristan Zellner – CTO & Head of Software Development · Münster",
     description:
-      "Software Engineer, Gründer und Geschäftsführer aus Münster mit über 10 Jahren Erfahrung in Full-Stack-Entwicklung und technischer Führung.",
+      "Tristan Zellner – CTO, Chief Technology Officer und Head of Software Development (Leitung Softwareentwicklung) aus Münster. Über 10 Jahre Erfahrung in technischer Führung, Full-Stack-Entwicklung und dem Aufbau von Produktteams.",
   },
 
   hero: {
