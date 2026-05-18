@@ -417,7 +417,7 @@ export const PORTFOLIO: Portfolio = {
   contact: {
     location: "Münster, Deutschland",
     headline:
-      "Auf der Suche nach einem Engineering Lead, CTO oder Head of Engineering?",
+      "Auf der Suche nach einem Product Engineer, Head of Engineering oder CTO?",
     email: "tristan.zellner@posteo.de",
     emailUrl: "mailto:tristan.zellner@posteo.de",
     linkedin: "linkedin.com/in/tristan-zellner-378469187",

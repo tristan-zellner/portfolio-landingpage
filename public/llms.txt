@@ -8,7 +8,7 @@ Tristan Zellner ist Software Engineer, CTO und Gründer mit Sitz in Münster (No
 
 - **Name:** Tristan Zellner
 - **Standort:** Münster, Nordrhein-Westfalen, Deutschland
-- **Positionen:** CTO / Chief Technology Officer · Head of Software Development · Leitung Softwareentwicklung · Software Engineer · Gründer & Geschäftsführer
+- **Positionen:** CTO / Chief Technology Officer · Head of Software Development · Leitung Softwareentwicklung · Product Engineer · Software Engineer · Gründer & Geschäftsführer
 
 ## Kontakt
 
@@ -29,7 +29,7 @@ Tristan Zellner ist Software Engineer, CTO und Gründer mit Sitz in Münster (No
 
 ## Werdegang (Zusammenfassung)
 
-Tristan Zellner ist Gründer von **travelbuddy** (Münster), wo er als Geschäftsführer für Produktentwicklung und technische Führung verantwortlich ist. Zuvor leitete er als Head of Engineering und CTO bei **finstreet** (Frankfurt/Münster) die Entwicklung einer Banking-SaaS-Plattform und führte ein Team von bis zu 15 Personen.
+Tristan Zellner ist Gründer von **travelbuddy** (Münster), wo er als Geschäftsführer für Produktentwicklung und technische Führung verantwortlich ist. Zuvor leitete er als Head of Engineering und CTO bei **finstreet** (Münster) die Entwicklung einer Banking-SaaS-Plattform und führte ein Team von bis zu 15 Personen.
 
 ## Ausbildung
 
@@ -41,4 +41,4 @@ Ruby on Rails · PostgreSQL · REST APIs · HTML/CSS · JavaScript · Hotwire (T
 
 ## Suchanfragen (Search Queries)
 
-Tristan Zellner, CTO Münster, Chief Technology Officer Münster, Head of Software Development Münster, Leitung Softwareentwicklung Münster, Software Engineer Münster, Engineering Lead Münster, Gründer Münster
+Tristan Zellner, CTO Münster, Chief Technology Officer Münster, Head of Software Development Münster, Leitung Softwareentwicklung Münster, Software Engineer Münster, Engineering Lead Münster, Gründer Münster, Product Engineer Münster
