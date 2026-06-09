@@ -4,7 +4,11 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://tristanzellner.de",
   output: "static",
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes("/lebenslauf"),
+    }),
+  ],
   fonts: [
     {
       provider: fontProviders.google(),

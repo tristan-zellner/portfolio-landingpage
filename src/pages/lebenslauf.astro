@@ -1,0 +1,565 @@
+---
+import { Image } from "astro:assets";
+import portraitSrc from "@/assets/portrait.jpg";
+import CvLayout from "@/layouts/CvLayout.astro";
+import { PORTFOLIO } from "@/data/portfolio";
+
+const P = PORTFOLIO;
+const s = P.ui.sections;
+
+const jobs = P.experience.filter((x) => !x.group);
+const educationEntries = P.experience.filter((x) => x.group === "Ausbildung");
+
+const stand = new Date().toLocaleDateString("de-DE", {
+  month: "long",
+  year: "numeric",
+});
+---
+
+<CvLayout>
+  <div class="toolbar">
+    <a href="/" class="back">← Zur Website</a>
+    <button type="button" id="print-btn">Drucken / Als PDF speichern</button>
+  </div>
+
+  <main class="sheet">
+    <!-- Header -->
+    <header class="cv-head">
+      <div class="cv-head-main">
+        <div class="kicker">Lebenslauf</div>
+        <h1>{P.name}</h1>
+        <div class="roles">{P.roles.join(" · ")}</div>
+        <dl class="contact-list">
+          <div>
+            <dt>{s.contact.fieldLocation}</dt>
+            <dd>{P.contact.location}</dd>
+          </div>
+          <div>
+            <dt>{s.contact.fieldEmail}</dt>
+            <dd><a href={P.contact.emailUrl}>{P.contact.email}</a></dd>
+          </div>
+          <div>
+            <dt>{s.contact.fieldLinkedIn}</dt>
+            <dd><a href={P.contact.linkedinUrl}>{P.contact.linkedin}</a></dd>
+          </div>
+          <div>
+            <dt>{s.contact.fieldGitHub}</dt>
+            <dd><a href={P.contact.githubUrl}>{P.contact.github}</a></dd>
+          </div>
+          <div>
+            <dt>{s.contact.fieldXing}</dt>
+            <dd><a href={P.contact.xingUrl}>{P.contact.xing}</a></dd>
+          </div>
+        </dl>
+      </div>
+      <div class="portrait">
+        <Image src={portraitSrc} alt={P.name} width={320} />
+      </div>
+    </header>
+
+    <!-- Profil -->
+    <section class="cv-section">
+      <h2>Profil</h2>
+      <p class="profile-text">{P.tagline}</p>
+    </section>
+
+    <!-- Berufserfahrung -->
+    <section class="cv-section">
+      <h2>Berufserfahrung</h2>
+      <div class="entries">
+        {
+          jobs.map((x) => (
+            <article class="entry">
+              <div class="entry-aside">
+                <div class="period">{x.period}</div>
+                <div class="aside-meta">{x.location} · {x.type}</div>
+              </div>
+              <div class="entry-main">
+                <h3>{x.role}</h3>
+                <div class="org">
+                  {x.company}
+                  {x.url && (
+                    <span class="org-url"> · {x.url.replace(/^https?:\/\//, "")}</span>
+                  )}
+                </div>
+                {x.summary && <p class="summary">{x.summary}</p>}
+                {x.bullets.length > 0 && (
+                  <ul>
+                    {x.bullets.map((b) => (
+                      <li>{b}</li>
+                    ))}
+                  </ul>
+                )}
+                {x.tags.length > 0 && (
+                  <div class="tagline">{x.tags.join(" · ")}</div>
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Ausbildung -->
+    <section class="cv-section">
+      <h2>Ausbildung</h2>
+      <div class="entries">
+        {
+          educationEntries.map((x) => (
+            <article class="entry entry--compact">
+              <div class="entry-aside">
+                <div class="period">{x.period}</div>
+                <div class="aside-meta">{x.location} · {x.type}</div>
+              </div>
+              <div class="entry-main">
+                <h3>{x.role}</h3>
+                <div class="org">{x.company}</div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Projekte -->
+    <section class="cv-section">
+      <h2>{s.projects.title}</h2>
+      <div class="entries">
+        {
+          P.projects.map((p) => (
+            <article class="entry">
+              <div class="entry-aside">
+                <div class="period">{p.period}</div>
+              </div>
+              <div class="entry-main">
+                <h3>{p.title}</h3>
+                <ul>
+                  {p.bullets.map((b) => (
+                    <li>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Fähigkeiten -->
+    <section class="cv-section">
+      <h2>{s.skills.title}</h2>
+      <div class="skill-rows">
+        {
+          P.skills.map((g) => (
+            <div class="skill-row">
+              <div class="skill-group">{g.group}</div>
+              <div class="skill-items">{g.items.join(", ")}</div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Persönlich -->
+    <section class="cv-section">
+      <h2>{s.personal.title}</h2>
+      <p class="profile-text">{s.personal.intro}</p>
+      <div class="hobby-line">
+        {
+          P.hobbies.map((h, i) => (
+            <span>
+              <strong>{h.label}</strong> – {h.note}{i < P.hobbies.length - 1 && " · "}
+            </span>
+          ))
+        }
+      </div>
+    </section>
+
+    <footer class="cv-foot">
+      <span>{P.name}</span>
+      <span>{P.contact.location.split(",")[0]} · Stand: {stand}</span>
+    </footer>
+  </main>
+</CvLayout>
+
+<script>
+  document.getElementById("print-btn")?.addEventListener("click", () => {
+    window.print();
+  });
+</script>
+
+<style>
+  /* ── Screen-only toolbar ─────────────────────────────── */
+  .toolbar {
+    max-width: 794px;
+    margin: 0 auto;
+    padding: var(--space-3) var(--space-4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+  }
+
+  .toolbar .back {
+    color: var(--color-ink-3);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .toolbar .back:hover {
+    color: var(--color-accent);
+  }
+
+  .toolbar button {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-paper);
+    background: var(--color-ink);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .toolbar button:hover {
+    background: var(--color-accent);
+  }
+
+  /* ── Sheet ───────────────────────────────────────────── */
+  .sheet {
+    max-width: 794px; /* ~A4 width at 96dpi */
+    margin: 0 auto var(--space-7);
+    background: #fff;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+    padding: 48px 52px;
+  }
+
+  /* ── Header ──────────────────────────────────────────── */
+  .cv-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-5);
+    align-items: start;
+    padding-bottom: var(--space-4);
+    border-bottom: var(--border-thick);
+  }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-2);
+  }
+
+  h1 {
+    font-size: 34px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+
+  .roles {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: var(--color-ink-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .contact-list {
+    margin: 0;
+    display: grid;
+    gap: 3px;
+  }
+
+  .contact-list div {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: var(--space-2);
+    align-items: baseline;
+  }
+
+  .contact-list dt {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-4);
+  }
+
+  .contact-list dd {
+    margin: 0;
+    font-size: 12.5px;
+    color: var(--color-ink);
+  }
+
+  .contact-list a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .contact-list a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .portrait :global(img) {
+    width: 118px;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+    border-radius: 1px;
+  }
+
+  /* ── Sections ────────────────────────────────────────── */
+  .cv-section {
+    padding-top: var(--space-4);
+  }
+
+  h2 {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 500;
+    color: var(--color-ink-3);
+    margin: 0 0 var(--space-2);
+    padding-bottom: 6px;
+    border-bottom: var(--border-thin);
+  }
+
+  .profile-text {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--color-ink-2);
+    margin: 0;
+    max-width: 620px;
+  }
+
+  /* ── Entries ─────────────────────────────────────────── */
+  .entries {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 128px 1fr;
+    gap: var(--space-3);
+  }
+
+  .period {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-ink);
+    line-height: 1.5;
+  }
+
+  .aside-meta {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-ink-4);
+    line-height: 1.5;
+  }
+
+  h3 {
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 2px;
+    line-height: 1.3;
+  }
+
+  .org {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-bottom: 5px;
+  }
+
+  .org-url {
+    color: var(--color-ink-4);
+    text-transform: none;
+    letter-spacing: 0.02em;
+  }
+
+  .summary {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--color-ink-2);
+    margin: 0 0 5px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 2px;
+  }
+
+  li {
+    font-size: 12px;
+    color: var(--color-ink-2);
+    line-height: 1.5;
+    display: grid;
+    grid-template-columns: 16px 1fr;
+  }
+
+  li::before {
+    content: "—";
+    color: var(--color-ink-4);
+  }
+
+  .tagline {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-4);
+    margin-top: 5px;
+  }
+
+  /* ── Skills ──────────────────────────────────────────── */
+  .skill-rows {
+    display: grid;
+    gap: 5px;
+  }
+
+  .skill-row {
+    display: grid;
+    grid-template-columns: 168px 1fr;
+    gap: var(--space-3);
+    align-items: baseline;
+  }
+
+  .skill-group {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-ink-3);
+  }
+
+  .skill-items {
+    font-size: 12.5px;
+    color: var(--color-ink);
+    line-height: 1.5;
+  }
+
+  /* ── Hobbies ─────────────────────────────────────────── */
+  .hobby-line {
+    font-size: 12.5px;
+    color: var(--color-ink-2);
+    line-height: 1.6;
+    margin-top: var(--space-2);
+  }
+
+  .hobby-line strong {
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
+  /* ── Footer ──────────────────────────────────────────── */
+  .cv-foot {
+    margin-top: var(--space-5);
+    padding-top: var(--space-2);
+    border-top: var(--border-thin);
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-ink-4);
+  }
+
+  /* ── Small screens ───────────────────────────────────── */
+  @media (max-width: 640px) {
+    .sheet {
+      padding: 28px 20px;
+    }
+
+    .cv-head {
+      grid-template-columns: 1fr;
+    }
+
+    .portrait {
+      order: -1;
+    }
+
+    .entry {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+
+    .skill-row {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+  }
+
+  /* ── Print ───────────────────────────────────────────── */
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  @media print {
+    .toolbar {
+      display: none;
+    }
+
+    .sheet {
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      box-shadow: none;
+      background: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h2 {
+      break-after: avoid;
+    }
+
+    .cv-head,
+    .entry--compact,
+    .skill-row,
+    .profile-text {
+      break-inside: avoid;
+    }
+
+    .entry-aside,
+    h3,
+    .org {
+      break-after: avoid;
+    }
+
+    .entry {
+      break-inside: avoid;
+    }
+
+    li {
+      break-inside: avoid;
+    }
+
+    .cv-foot {
+      margin-top: var(--space-4);
+    }
+  }
+</style>
